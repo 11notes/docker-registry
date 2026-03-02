@@ -1,0 +1,30 @@
+name: "container"
+
+x-lockdown: &lockdown
+  # prevents write access to the image itself
+  read_only: true
+  # prevents any process within the container to gain more privileges
+  security_opt:
+    - "no-new-privileges=true"
+
+services:
+  registry:
+    image: "11notes/registry:3.0.0"
+    <<: *lockdown
+    environment:
+      TZ: "Europe/Zurich"
+    volumes:
+      - "registry.etc:/registry/etc"
+      - "registry.var:/registry/var"
+    ports:
+      - "3000:5000/tcp"
+    networks:
+      frontend:
+    restart: "always"
+
+volumes:
+  registry.etc:
+  registry.var:
+
+networks:
+  frontend:

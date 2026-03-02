@@ -1,0 +1,24 @@
+{
+  "image": "11notes/registry",
+  "name": "registry",
+  "root": "/registry",
+  "semver": {
+    "version": "3.0.0"
+  },
+  "readme": {
+    "description": "run registry rootless and distroless",
+    "introduction": "A registry is a storage and content delivery system, holding named container images and other content, available in different tagged versions.",
+    "built": {
+      "registry": "https://hub.docker.com/_/registry"
+    },
+    "distroless": {
+      "layers": [
+        "11notes/distroless",
+        "11notes/distroless:localhealth"
+      ]
+    },
+    "comparison": {
+      "image": "registry"
+    }
+  }
+}

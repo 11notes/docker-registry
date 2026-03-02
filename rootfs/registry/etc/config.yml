@@ -1,0 +1,38 @@
+version: 0.1
+log:
+  accesslog:
+    disabled: false
+  level: warn
+  formatter: json
+  fields:
+    service: registry
+storage:
+  cache:
+    blobdescriptor: inmemory
+    blobdescriptorsize: 0
+  filesystem:
+    rootdirectory: /registry/var
+  maintenance:
+    uploadpurging:
+      enabled: true
+      age: 168h
+      interval: 24h
+      dryrun: false
+http:
+  addr: 0.0.0.0:5000
+  debug:
+    addr: 0.0.0.0:9100
+    prometheus:
+      enabled: true
+      path: /metrics
+  net: tcp
+  headers:
+    X-Content-Type-Options: [nosniff]
+health:
+  storagedriver:
+    enabled: true
+    interval: 10s
+    threshold: 3
+proxy:
+  remoteurl: https://registry-1.docker.io
+  ttl: 168h
