@@ -3,7 +3,7 @@
   "name": "registry",
   "root": "/registry",
   "semver": {
-    "version": "3.0.0"
+    "version": "3.1.0"
   },
   "readme": {
     "description": "run registry rootless and distroless",
