@@ -9,7 +9,7 @@ x-lockdown: &lockdown
 
 services:
   registry:
-    image: "11notes/registry:3.1.0"
+    image: "11notes/registry:3.1.1"
     <<: *lockdown
     environment:
       TZ: "Europe/Zurich"
